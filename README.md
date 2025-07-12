@@ -67,3 +67,10 @@ sam local start-api
 
 - POST /users
 - POST /user-python
+
+
+
+# deploy to production
+```bash
+ sam deploy --stack-name cloudnorth1 --resolve-s3 --capabilities CAPABILITY_NAMED_IAM
+```
