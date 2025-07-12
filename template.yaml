@@ -31,6 +31,7 @@ Resources:
   UserTable:
     Type: AWS::DynamoDB::Table
     Properties:
+      TableClass: STANDARD
       TableName: UserEvents
       BillingMode: PAY_PER_REQUEST
       AttributeDefinitions:
@@ -39,8 +40,8 @@ Resources:
       KeySchema:
         - AttributeName: userId
           KeyType: HASH
-      StreamSpecification:
-        StreamViewType: NEW_IMAGE
+      # StreamSpecification:
+      #   StreamViewType: NEW_IMAGE
 
   TSLambda:
     Type: AWS::Serverless::Function
@@ -155,8 +156,7 @@ Resources:
                       try:
                           # Create the bucket
                           s3.create_bucket(
-                              Bucket=bucket_name,
-                              CreateBucketConfiguration={'LocationConstraint': os.getenv("AWS_REGION")}
+                              Bucket=bucket_name
                           )
                           # Set the CORS configuration
                           s3.put_bucket_cors(Bucket=bucket_name, CORSConfiguration=cors_configuration)

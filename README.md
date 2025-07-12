@@ -70,7 +70,21 @@ sam local start-api
 
 
 
-# deploy to production
+## Production
+ensure your region is set.
 ```bash
- sam deploy --stack-name cloudnorth1 --resolve-s3 --capabilities CAPABILITY_NAMED_IAM
+export AWS_REGION=us-east-1
 ```
+### deploy
+choose a name for the stack and deploy it.
+ie.
+```bash
+sam deploy --stack-name cloud-north-stack-4 --resolve-s3 --capabilities CAPABILITY_NAMED_IAM --region us-east-1
+```
+
+### take down the stack.
+```bash
+sam delete --stack-name cloud-north-stack-4
+```
+note: if you have trouble completing the deletion, try deleting the related efs volumes and it's network interfaces.
+
