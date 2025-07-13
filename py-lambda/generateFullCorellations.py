@@ -3,7 +3,7 @@ from sklearn.linear_model import LinearRegression
 from collections import OrderedDict
 
 
-def get_top_three_orrellations:
+def get_top_three_correllations():
     mental_health_data = pd.read_csv('./university_mental_health_iot_dataset.csv', sep=r'\s*,\s*', engine='python')
     mental_health_data.timestamp = pd.to_datetime(mental_health_data.timestamp)
     mental_health_data['hour'] = mental_health_data.timestamp.dt.hour
