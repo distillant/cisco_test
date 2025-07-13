@@ -1,6 +1,5 @@
 import json
-from .getMentalnsights import get_top_three_correllations
-
+from .generateFullCorellations import get_top_three_correllations
 
 def lambda_handler(event, context):
     try:
