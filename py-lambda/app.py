@@ -1,9 +1,9 @@
 import json
-from .generateFullCorellations import get_top_three_correllations
+from services.generateFullCorellations import get_top_three_correllations
 
 def lambda_handler(event, context):
     try:
-        top_three_correlatations = get_top_three_correllations
+        coef, top_three_correlatations = get_top_three_correllations()
         output = { 
             "top_stress_features": [item for item in top_three_correlatations],
             "correlations": dict(coef)

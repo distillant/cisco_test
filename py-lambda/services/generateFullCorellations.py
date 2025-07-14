@@ -20,5 +20,5 @@ def get_top_three_correllations():
     # coef = pd.Series(linear_model.coef_,predictors).sort_values()
     coef = pd.Series(linear_model.coef_, predictors).sort_values(key=abs, ascending=False).head(3)
     top_three_correlatations = OrderedDict(coef)
-    return top_three_correlatations
+    return  coef, top_three_correlatations
 
